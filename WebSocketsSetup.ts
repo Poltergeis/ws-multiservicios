@@ -35,7 +35,6 @@ export class WebSocketsSetup {
                         break;
                     case "SensorData":
                         this.sockets.forEach((client) => {
-                            if (data.idUsuario === client.idUsuario) {
                                 data['fechaRegistro'] = new Date().toLocaleDateString("es-ES", {
                                     weekday: 'long',
                                     year: 'numeric',
@@ -47,7 +46,7 @@ export class WebSocketsSetup {
                                 });
                                 client.send(JSON.stringify(data));
                                 return;
-                            }
+                            
                         });    
                         break;
                 }
